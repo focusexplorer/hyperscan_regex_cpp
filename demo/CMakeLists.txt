@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.15)
+project(test)
+set(CMAKE_CXX_STANDARD 14)
+#add_link_options("-static-libgcc")
+#add_link_options("-static-libstdc++")
+add_executable(demo demo.cpp)
+target_link_libraries(demo hsc)

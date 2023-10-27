@@ -1,0 +1,5 @@
+.*
+!.gitignore
+!.gitmodules
+/cmake-build-debug/
+/hyperscan/
