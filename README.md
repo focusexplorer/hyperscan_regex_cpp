@@ -20,7 +20,7 @@ git submodule update --init --recursive
 cd hyperscan
 mkdir build
 cd build
-cmake ..
+cmake -DCMAKE_INSTALL_PREFIX=./install ..
 make
 cmake --install . --prefix=./install
 cd ../..
