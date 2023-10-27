@@ -20,18 +20,20 @@ git submodule update --init --recursive
 cd hyperscan
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=./install ..
-make
-cmake --install . --prefix=./install
+cmake -DCMAKE_INSTALL_PREFIX=./install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_CXX_FLAGS='-fPIE' -DCMAKE_EXPORT_COMPILE_COMMANDS=ON  ..
+make -j 10
+cmake --install .
 cd ../..
 ```
 
-## 编译本仓库
+## 编译运行本仓库
 ```bash
 mkdir build
 cd build
 cmake ..
-make
-cd ..
+make -j 6
+cd demo
+./demo
+cd ../..
 ```
 因为代码量不大，用户可以直接把代码复制到自己的仓库中使用。

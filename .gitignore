@@ -3,3 +3,4 @@
 !.gitmodules
 /cmake-build-debug/
 /hyperscan/
+/build/
