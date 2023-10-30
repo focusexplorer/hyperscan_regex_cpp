@@ -4,19 +4,30 @@
 
 #ifndef HYPERSCAN_CPP_PROJ_LIBRARY_HYPERSCAN_CPP_H_
 #define HYPERSCAN_CPP_PROJ_LIBRARY_HYPERSCAN_CPP_H_
-#include "hs.h"
 #include "string"
 #include "vector"
+extern "C"
+{
+struct hs_database;
+struct hs_compile_error;
+struct hs_scratch;
+typedef hs_database hs_database_t;
+typedef hs_compile_error hs_compile_error_t;
+typedef hs_scratch hs_scratch_t;
+}
 namespace hsc
 {
 using std::string;
 using std::vector;
+
 class SimpleMatch
 {
  public:
 	SimpleMatch(const char* pattern);
 	~SimpleMatch();
 	operator bool(){return valid;};
+    SimpleMatch(const SimpleMatch&)=delete;
+    SimpleMatch&operator=(const SimpleMatch&)=delete;
 	bool match(const std::string& str);
 	const char* error(){return err.c_str();};
 
@@ -33,7 +44,10 @@ class SimpleMatch
 class MultiMatch
 {
  public:
+    MultiMatch(){};
 	~MultiMatch();
+    MultiMatch(const MultiMatch&)=delete;
+    MultiMatch&operator=(const MultiMatch&)=delete;
 	void add_reg(const string&regexp,int id);
 	bool compile();
 	bool scan(const string&data,void*ctx);

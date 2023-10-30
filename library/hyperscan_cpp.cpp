@@ -1,6 +1,7 @@
 //
 // Created by focusexplorer(github) on 2023/10/27.
 //
+#include "hs.h"
 #include "hyperscan_cpp.h"
 #include "sstream"
 namespace hsc
